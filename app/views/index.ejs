@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>MMORPG - Game of Thrones</title>
+		<script src="js/jquery-2.2.1.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+	</head>
+
+	<body class="body-index">
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<%if (usuario.autenticado) {%>
+				<div class="row">
+					<div class="col-md-6">
+						<%if (usuario.autenticado) {%>
+						<div class="usuario">
+							<img src="images/casa_<%=usuario.casa%>.jpg" title="CASA: <%=usuario.casa%>" class="img-rounded user-avatar-sm pull-left"/>
+							<h4 itemprop="name"><%=usuario.nome%><br>
+								<small>Login: <strong><%=usuario.usuario%></strong> - Último acesso: <%=usuario.dataUltimoAcesso%></small>
+							</h4>
+							<div class="clearfix"></div>
+						</div>
+						<%}%>
+					</div>
+					<div class="col-md-6">
+						<div class="pull-right jogo">
+							<a href="/jogo" class="btn btn-info">Jogo</a>
+						</div>
+					</div>
+				</div>
+				<%} else {%>
+				<form class="form-inline form-entrar" action="/autenticar" method="post">
+					<%if (validacao != null && validacao.length > 0) {%>
+					<div class="alert alert-danger">
+						<strong>Atenção jogador!</strong>
+						<ul>
+							<%for (var i=0; i < validacao.length; i++) {%>
+							<li>
+								<%=validacao[i].msg%>
+							</li>
+							<%}%>
+						</ul>
+					</div>
+					<%}%>
+					<div class="form-group">
+						<input type="text" name="usuario" id="usuario" placeholder="Usuário" required value="<%=dadosForm.usuario%>" class="form-control" autocomplete="off" />
+						<input type="password" name="senha" id="senha" placeholder="Senha" required value="<%=dadosForm.senha%>" class="form-control" />
+						<button type="submit" class="btn btn-success">Entrar</button>
+						<a href="/cadastro" class="btn btn-info">Cadastro</a>
+					</div>
+				</form>
+				<%}%>
+			</div>
+			
+		</nav>
+
+	    <div class="container">
+	    	<div class="row">
+	    		<div class="col-md-2"></div>
+
+	    		<div class="col-md-8">
+					<img src="images/game_of_thrones_logo.jpg" />
+				</div>
+
+	    		<div class="col-md-2"></div>
+		    	</div>
+	    	</div>
+	    </div>	
+		
+	</body>
+</html>

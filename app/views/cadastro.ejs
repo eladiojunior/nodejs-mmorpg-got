@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>MMORPG - Game of Thrones</title>
+		<script src="js/jquery-2.2.1.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<link href="css/style.css" rel="stylesheet">
+		<link rel="shortcut icon" href="/images/favicon.ico" />
+	</head>
+
+	<body class="body-index">
+
+		<nav class="navbar navbar-default navbar-static-top">
+			<div class="container">
+				<form class="form-inline form-entrar">
+					<div class="form-group">				
+						<a href="/" class="btn btn-success">Voltar</a>
+					</div>
+				</form>
+			</div>
+			
+		</nav>
+
+	    <div class="container">
+	    	<%if (validacao != null && validacao.length > 0) {%>
+				<div class="alert alert-danger">
+					<strong>Atenção jogador!</strong>
+					<ul>
+						<%for (var i=0; i < validacao.length; i++) {%>
+							<li>
+								<%=validacao[i].msg%>
+							</li>
+						<%}%>
+					</ul>
+				</div>
+			<%}%>
+			<form class="form-cadastro" action="/cadastrar" method="post">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label for="nome">Nome</label>
+									<input type="nome" class="form-control" name="nome" value="<%=dadosForm.nome%>" required placeholder="Nome do Jogador">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="usuario">Usuário</label>
+									<input type="usuario" class="form-control" value="<%=dadosForm.usuario%>" name="usuario" required placeholder="Usuário">
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="form-group">
+									<label for="senha">Senha</label>
+									<input type="password" class="form-control" value="<%=dadosForm.senha%>" name="senha" required placeholder="Password">
+								</div>
+							</div>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="text-center">
+									<button type="submit" class="btn btn-primary">Confirmar cadastro</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<div class="row">
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_arryn.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="arryn"> Casa Arryn
+										</div>
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_baratheon.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="baratheon"> Casa Baratheon
+										</div>
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_greyjoy.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="greyjoy"> Casa Greyjoy
+										</div>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_lannister.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="lannister"> Casa Lannister
+										</div>
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_martell.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="martell"> Casa Martell
+										</div>
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_stark.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="stark"> Casa Stark
+										</div>
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_targaryen.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="targaryen"> Casa Targaryen
+										</div>
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_tully.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="tully"> Casa Tully
+										</div>
+									</label>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="radio">
+									<label>
+										<img src="images/casa_tyrell.jpg" class="img-responsive img-radio">
+										<div class="text-center">
+											<input type="radio" id="left-item" name="casa" value="tyrell"> Casa Tyrell
+										</div>
+									</label>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+	    </div>
+	</body>
+</html>

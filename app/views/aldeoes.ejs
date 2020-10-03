@@ -1,0 +1,48 @@
+<div id="aldecoes">					
+	<h3>Aldeões</h3>
+	<%if (validacao != null && validacao.length > 0) {%>
+	<div class="alert alert-danger">
+		<strong>Atenção jogador!</strong>
+		<ul>
+			<%for (var i=0; i < validacao.length; i++) {%>
+			<li>
+				<%=validacao[i].msg%>
+			</li>
+			<%}%>
+		</ul>
+	</div>
+	<%} else {%>
+	<form class="form-ordenar">
+		<div class="alert mensagem-ordenacao"></div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="form-group">
+					<select class="form-control" name="acao">
+						<option value="">-- Escolha a ação</option>
+						<option value="1">Coletar recursos (2 moedas e 1 hora)</option>
+						<option value="2">Enforcar aldeão (3 moedas e 2 horas)</option>
+						<option value="3">Ensinar história (1 modeda e 5 horas)</option>
+						<option value="4">Ensinar magia (1 moeda e 5 horas)</option>
+					</select>										
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<input type="number" class="form-control" min="1" max="999" maxlength="3" name="quantidade" required placeholder="Qtd. de Suditos">
+				</div>
+			</div>
+			<div class="col-md-2">
+				<div class="form-group row">
+					<button type="submit" class="btn btn-primary">Ordenar</button>
+				</div>
+			</div>
+		</div>
+		<hr />
+		<div class="row">
+			<div class="col-xs-12">
+				<span>Senhor, você possui <span class="label label-warning"><%=qtd_suditos_desocupados%></span> aldeões desocupados e <span class="label label-info"><%=qtd_suditos_em_atividade%></span> aldeões em atividade.</span>
+			</div>
+		</div>
+	</form>
+	<%}%>
+</div>

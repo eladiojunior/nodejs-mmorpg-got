@@ -1,0 +1,42 @@
+<div id="pergaminhos">					
+	<h3>Pergaminhos</h3>
+	<%if (validacao != null && validacao.length > 0) {%>
+	<div class="alert alert-danger">
+		<strong>Atenção jogador!</strong>
+		<ul>
+			<%for (var i=0; i < validacao.length; i++) {%>
+			<li>
+				<%=validacao[i].msg%>
+			</li>
+			<%}%>
+		</ul>
+	</div>
+	<%} else {%>
+		<%if (ordens.length <= 0) {%>
+		<div class="alert alert-info">Nenhuma ação registrada para seus suditos.</div>
+		<%} else {%>
+		<ul>
+			<%for (var i = 0; i < ordens.length; i++) {%>
+				<%
+					var texto_ordem = '';
+					switch (parseInt(ordens[i].ordem)) {
+						case 1:
+							texto_ordem = 'aldeão(ões) coletando recursos';
+							break;
+						case 2:
+							texto_ordem = 'enforcamento(s) programado';
+							break;
+						case 3:
+							texto_ordem = 'aldeão(ões) em treinamento de história';
+							break;
+						case 4:
+							texto_ordem = 'aldeão(ões) em treinamento de magia';
+							break;
+					}
+				%>
+				<li><%=ordens[i].qtd_ordem%> <%=texto_ordem%> - restam <span class="tempo-restante label label-info" title="Tempo restante para ação."><%=ordens[i].segundos_restante%></span> segundos - <a href="#" class="revogar" data-id="<%=ordens[i]._id%>">Revogar Ordem</a></li>
+			<%}%>
+		</ul>
+		<%}%>
+	<%}%>
+</div>

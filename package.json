@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-mmorpg-got",
+  "version": "1.0.0",
+  "description": "Projeto em NodeJs de um MMORPG GameOfThrones",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Eladio Junior",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "consign": "^0.1.2",
+    "crypto": "^1.0.1",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^2.20.8",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.7"
+  }
+}
