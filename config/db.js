@@ -12,8 +12,6 @@ var options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
-    reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 500,
     connectTimeoutMS: 10000,
     user: MONGO_USERNAME,
     pass: MONGO_PASSWORD
